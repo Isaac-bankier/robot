@@ -2,15 +2,16 @@
 from math import *
 
 def motor_strength(Vlinear, direction, Vangular, wheel):
-    wheels = [0.0, 120.0, 240.0]
-    wheelAngle = wheels[wheel]
-    Vrx = Vlinear * cos(direction)
-    Vry = Vlinear * sin(direction)
-    Vwx = Vrx * cos(wheelAngle)
-    Vwy = Vry * - sin(wheelAngle)
-    Vw = Vlinear * (cos(direction) * cos(wheelAngle) - sin(direction) * sin(wheelAngle)) + Vangular
-    return Vw
-test_data = [[1, 0 ,0], [1000, 0 ,0], [5, 0 ,0], [5, 180 ,0], [5, 90 ,0], [5, 270 ,90]]
+    wheels = [0, 120, 240] #Placement of each wheel
+    wheelAngle = wheels[wheel] #The angle of the target wheel
+    Vrx = Vlinear * cos(direction) #The X movement of the robot
+    Vry = Vlinear * sin(direction) #The Y movement of the robot
+    Vwx = Vrx * cos(wheelAngle) #The X movement of the wheel
+    Vwy = Vry * - sin(wheelAngle) #The Y movement of the wheel
+    Vw = Vlinear * (cos(direction) * cos(wheelAngle) - sin(direction) * sin(wheelAngle)) + Vangular #The combined strength for the wheel
+    return Vw 
+
+test_data = [[1.0, 0.0, 0.0], [1000.0, 0.0, 0.0], [5.0, 0.0, 0.0], [5.0, 180.0, 0.0], [5.0, 90.0, 0.0], [5.0, 270.0, 90.0]]
 
 for test in test_data:
     print("\n\n\n-------------------------------")
